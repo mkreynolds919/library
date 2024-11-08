@@ -24,14 +24,25 @@ addToLibrary(book2);
 //creates and styles header div//
 const libraryHeader = document.createElement("div");
 libraryHeader.textContent = "My Library";
-libraryHeader.style.fontSize = "max(18px, 1.2em";
+libraryHeader.style.fontSize = "max(18px, 1.2em)";
 libraryHeader.style.textAlign = "center";
 document.body.appendChild(libraryHeader);
 
 //creates the card for each book in the myLibrary list//
 for (var i = 0; i < myLibrary.length; i++) {
     const card = document.createElement("div");
-    const book = myLibrary[i];
-    card.textContent = `Title: ${book.title}`;
+
+    // styling for cards //
+    card.style.display = "flex";
+    card.style.outline = "2px solid black";
+    card.style.borderRadius = "4px";
+    card.style.width = "25%";
+    card.style.padding = "8px";
+
     document.body.appendChild(card);
+
+
+    const book = myLibrary[i];
+    
+    
 }
