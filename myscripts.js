@@ -21,17 +21,11 @@ const book2 = new Book("Second Book", "Smith Johnson", 486);
 addToLibrary(book1);
 addToLibrary(book2);
 
-//creates and styles header div//
-const libraryHeader = document.createElement("div");
-libraryHeader.textContent = "My Library";
-libraryHeader.style.fontSize = "max(24px, 1.2em)";
-libraryHeader.style.textAlign = "center";
-libraryHeader.style.margin = "20px";
-document.body.appendChild(libraryHeader);
 
 //creates the card for each book in the myLibrary list//
 for (var i = 0; i < myLibrary.length; i++) {
     const card = document.createElement("div");
+    card.id = `card${i+1}`;
 
     // styling for cards //
     card.style.display = "flex";
@@ -69,13 +63,8 @@ for (var i = 0; i < myLibrary.length; i++) {
     info.appendChild(pageCount);    
 
     // creates and appends checkbox to card //
-    const checkboxContainer = document.createElement("div");
-    checkboxContainer.style.flex;
-    card.appendChild(checkboxContainer);
-
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.id = `checkbox${i+1}`;
-    checkboxContainer.appendChild(checkbox);
-    
+    card.appendChild(checkbox);
 }
