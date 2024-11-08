@@ -35,7 +35,7 @@ for (var i = 0; i < myLibrary.length; i++) {
 
     // styling for cards //
     card.style.display = "flex";
-    card.style.gap = "8px";
+    card.style.justifyContent = "space-between";
     card.style.outline = "2px solid black";
     card.style.borderRadius = "4px";
     card.style.width = "25%";
@@ -46,21 +46,36 @@ for (var i = 0; i < myLibrary.length; i++) {
 
     const book = myLibrary[i];
 
+    const info = document.createElement("div");
+    info.style.display = "flex";
+    info.style.gap = "8px";
+    card.appendChild(info);
+
     // creates and appends title to card //
     const title = document.createElement("div");
     title.textContent = `${book.title}`;
     title.style.fontWeight = "bold";
-    card.appendChild(title);
+    info.appendChild(title);
 
     // creates and appends author to card //
     const author = document.createElement("div");
     author.textContent = `by ${book.author}`;
-    card.appendChild(author);
+    info.appendChild(author);
 
     // creates and appends page count to card //
     const pageCount = document.createElement("div");
     pageCount.textContent = `(${book.pages})`;
     pageCount.style.fontWeight = "bold";
-    card.appendChild(pageCount);
+    info.appendChild(pageCount);    
+
+    // creates and appends checkbox to card //
+    const checkboxContainer = document.createElement("div");
+    checkboxContainer.style.flex;
+    card.appendChild(checkboxContainer);
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.id = `checkbox${i+1}`;
+    checkboxContainer.appendChild(checkbox);
     
 }
