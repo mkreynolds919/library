@@ -14,7 +14,6 @@ function addToLibrary(book) {
     myLibrary.push(book);
 }
 
-
 const book1 = new Book("First Book", "John Smith", 592);
 const book2 = new Book("Second Book", "Smith Johnson", 486);
 
