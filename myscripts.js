@@ -14,12 +14,6 @@ function addToLibrary(book) {
     myLibrary.push(book);
 }
 
-const book1 = new Book("First Book", "John Smith", 592);
-const book2 = new Book("Second Book", "Smith Johnson", 486);
-
-addToLibrary(book1);
-addToLibrary(book2);
-
 const libraryContainer = document.querySelector("#library-container");
 
 
@@ -71,5 +65,26 @@ for (var i = 0; i < myLibrary.length; i++) {
     card.appendChild(checkbox);
 }
 
+//give function to new-book button so it makes form appear//
+const newBook = document.querySelector("#new-book");
+const formContainer = document.querySelector("#form-container");
+newBook.addEventListener("click", () => {
+    formContainer.style.display = "flex";
+});
+
+//create new book object with form contents once add-book button is pressed//
+const addBook = document.querySelector("#add-book");
+addBook.addEventListener("click", () => {
+    const formTitle = document.querySelector("#title");             // finds inputs from the form //
+    const formAuthor = document.querySelector("#author");
+    const formPageCount = document.querySelector("#page_count");
+
+    var newBookTitle = formTitle.value;                             // assigns variables from input values for object creation //
+    var newBookAuthor = formAuthor.value;
+    var newBookPageCount = formPageCount.value;
+
+    const newBook = new Book(newBookTitle, newBookAuthor, newBookPageCount);        // creates object and adds it to library //
+    addToLibrary(newBook);
+})
 
 
