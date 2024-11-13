@@ -17,8 +17,11 @@ function addToLibrary(book) {
 const libraryContainer = document.querySelector("#library-container");
 
 
-//creates the card for each book in the myLibrary list//
-for (var i = 0; i < myLibrary.length; i++) {
+//function that creates cards for each book object//
+//increment variable is there to properly give id's to the cards based on their index in the library array//
+var i = 0;
+
+function createCard(book) {
     const card = document.createElement("div");
     card.id = `card${i+1}`;
 
@@ -32,9 +35,6 @@ for (var i = 0; i < myLibrary.length; i++) {
     card.style.width = "100%";
 
     libraryContainer.appendChild(card);
-
-
-    const book = myLibrary[i];
 
     const info = document.createElement("div");
     info.style.display = "flex";
@@ -63,6 +63,8 @@ for (var i = 0; i < myLibrary.length; i++) {
     checkbox.type = "checkbox";
     checkbox.id = `checkbox${i+1}`;
     card.appendChild(checkbox);
+
+    i++;
 }
 
 //give function to new-book button so it makes form appear//
@@ -85,6 +87,15 @@ addBook.addEventListener("click", () => {
 
     const newBook = new Book(newBookTitle, newBookAuthor, newBookPageCount);        // creates object and adds it to library //
     addToLibrary(newBook);
+
+    //calls function to create and display card in library//
+    createCard(newBook);
+
+    //clears values for next time and turns form display back to "none"//
+    formTitle.value = "";
+    formAuthor.value = "";
+    formPageCount.value = "";
+    formContainer.style.display = "none";
 })
 
 
