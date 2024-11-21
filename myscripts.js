@@ -79,9 +79,19 @@ newBook.addEventListener("click", () => {
 //create new book object with form contents once add-book button is pressed//
 const addBook = document.querySelector("#add-book");
 addBook.addEventListener("click", () => {
+    //identify error message button and reset it to none display type//
+    const errorMessage = document.querySelector("#error-message");
+    errorMessage.style.display = "none";
+
     const formTitle = document.querySelector("#title");             // finds inputs from the form //
     const formAuthor = document.querySelector("#author");
     const formPageCount = document.querySelector("#page_count");
+
+    //if any field is empty, error message appears until they are all filled//
+    if ([formTitle.value, formAuthor.value, formPageCount.value].includes("")) {
+        errorMessage.style.display = "block";
+        return;
+    }
 
     var newBookTitle = formTitle.value;                             // assigns variables from input values for object creation //
     var newBookAuthor = formAuthor.value;

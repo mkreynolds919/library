@@ -45,3 +45,8 @@ label {
 input {
     margin-bottom: 10px;
 }
+
+#error-message {
+    display: none;
+    color: red;
+}
