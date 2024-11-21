@@ -24,6 +24,8 @@ var i = 0;
 function createCard(book) {
     const card = document.createElement("div");
     card.id = `card${i+1}`;
+    card.classList.add(`card`);
+    card.classList.add(`${i+1}`);
 
     // styling for cards //
     card.style.display = "flex";
