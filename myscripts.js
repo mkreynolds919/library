@@ -63,8 +63,19 @@ function createCard(book) {
     // creates and appends checkbox to card //
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
+    checkbox.classList.add("checkbox");
     checkbox.id = `checkbox${i+1}`;
     card.appendChild(checkbox);
+
+    checkbox.addEventListener("change", () => {
+        if (checkbox.checked) {
+            card.style.outline = "2px solid green";
+            card.style.backgroundColor = "lightgreen";
+        } else {
+            card.style.outline = "2px solid black";
+            card.style.backgroundColor = "white";
+        }
+    });
 
     i++;
 }
