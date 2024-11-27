@@ -71,7 +71,6 @@ function createCard(book) {
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.classList.add("checkbox");
-    checkbox.id = `checkbox${i+1}`;
     inputContainer.appendChild(checkbox);
 
     // creates functionality to change styling based on read status of the book //
@@ -88,6 +87,12 @@ function createCard(book) {
     const deleteBook = document.createElement("button");
     deleteBook.textContent = "Delete";
     inputContainer.appendChild(deleteBook); 
+
+    // add functionality for delete button that removes card and removes object from array //
+    deleteBook.addEventListener("click", () => {
+        card.remove();
+        myLibrary.splice(myLibrary.indexOf(book), 1);
+    });
 
     i++;
 }
@@ -132,5 +137,7 @@ addBook.addEventListener("click", () => {
     formPageCount.value = "";
     formContainer.style.display = "none";
 })
+
+
 
 
