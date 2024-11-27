@@ -29,8 +29,8 @@ function createCard(book) {
 
     // styling for cards //
     card.style.display = "flex";
-    card.style.justifyContent = "space-between";
     card.style.alignContent = "center";
+    card.style.justifyContent = "space-between";
     card.style.outline = "2px solid black";
     card.style.borderRadius = "4px";
     card.style.padding = "8px";
@@ -60,13 +60,21 @@ function createCard(book) {
     pageCount.style.fontWeight = "bold";
     info.appendChild(pageCount);    
 
+    // creates and appends container for modifying inputs //
+    const inputContainer = document.createElement("div");
+    inputContainer.id = "input-container";
+    inputContainer.style.display = "flex";
+    inputContainer.style.gap = "8px";
+    card.appendChild(inputContainer);
+
     // creates and appends checkbox to card //
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.classList.add("checkbox");
     checkbox.id = `checkbox${i+1}`;
-    card.appendChild(checkbox);
+    inputContainer.appendChild(checkbox);
 
+    // creates functionality to change styling based on read status of the book //
     checkbox.addEventListener("change", () => {
         if (checkbox.checked) {
             card.style.outline = "2px solid green";
@@ -76,6 +84,10 @@ function createCard(book) {
             card.style.backgroundColor = "white";
         }
     });
+
+    const deleteBook = document.createElement("button");
+    deleteBook.textContent = "Delete";
+    inputContainer.appendChild(deleteBook); 
 
     i++;
 }
