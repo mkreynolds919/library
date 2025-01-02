@@ -7,6 +7,7 @@ function Book(title, author, pages) {
     this.title = title;
     this.author = author;
     this.pages = pages;
+    this.read = false;
 }
 
 //adds books to list//
@@ -78,9 +79,11 @@ function createCard(book) {
         if (checkbox.checked) {
             card.style.outline = "2px solid green";
             card.style.backgroundColor = "lightgreen";
+            book.read = true;
         } else {
             card.style.outline = "2px solid black";
             card.style.backgroundColor = "white";
+            book.read = false;
         }
     });
 
