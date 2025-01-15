@@ -3,12 +3,14 @@
 myLibrary = [];
 
 //constructor for book objects//
-function Book(title, author, pages) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = false;
+class Book {
+    constructor (title, author, pages) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+    }
 }
+
 
 //adds books to list//
 function addToLibrary(book) {
